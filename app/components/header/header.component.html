@@ -1,0 +1,89 @@
+<header class="header td-header-main">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="td-site-settings">
+					<div class="td-user-welcome">
+						<span class="badge td-name-badge">YO</span>Welcome back Yinnette! Not you?
+						<a href="" class="td-text-link">Logout</a>
+					</div>
+					<div class="td-language">
+						<select class="form-control">
+							<option>English</option>
+						</select>
+					</div>
+					<div class="td-location">
+						<select class="form-control">
+							<option>Location</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="td-brand">
+					<a routerLink="/" class="td-brand-logo"></a>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="td-search">
+					<div class="td-search-main">
+						<div class="input-group">
+							<select class="form-control td-search-dropdown">
+								<option (click)="showCategoriesTypeahead()">Search All Categories</option>
+								<option (click)="showProductsTypeahead()">Search for Products</option>
+								<option (click)="showVendorsTypeahead()">Search for Vendors</option>
+								<option (click)="showSkusTypeahead()">Search for SKU</option>
+							</select>
+							<div [ngSwitch]="typeaheadSelected" class="form-control td-search-input">
+								<ng2-completer class="form-control td-search-input" *ngSwitchCase="'products'" [(ngModel)]="product" [datasource]="products" [minSearchLength]="0"></ng2-completer>
+								<ng2-completer class="form-control td-search-input" *ngSwitchCase="'categories'" [(ngModel)]="category" [datasource]="categories" [minSearchLength]="0"></ng2-completer>
+								<ng2-completer class="form-control td-search-input" *ngSwitchCase="'vendors'" [(ngModel)]="vendor" [datasource]="vendors" [minSearchLength]="0"></ng2-completer>
+								<ng2-completer class="form-control td-search-input" *ngSwitchCase="'skus'" [(ngModel)]="sku" [datasource]="skus" [minSearchLength]="0"></ng2-completer>
+							 </div>
+							<!--<input type="text" class="form-control td-search-input" placeholder="Search for Keyword" />-->
+							<button class="btn td-search-btn">
+								<img src="td-icon-search.svg">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="td-site-actions">
+					<div class="btn-group">
+						<a href="" class="btn btn-text">Login</a>
+						<a href="" class="btn btn-text">Create an Account</a>
+						<a href="" class="btn btn-success td-btn-slant">Cart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="td-nav-main">
+		<div class="container">
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Products &amp; Vendors</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Management</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Analytics &amp; Reports</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">How it Works</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Support</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/about">About Us</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+<router-outlet></router-outlet>
